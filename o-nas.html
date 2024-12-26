@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Nas - GlossLab</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        :root {
+            --glow-color: hsl(306, 99%, 66%);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            background-color: black;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1%;
+            background: rgba(58, 58, 58, 0.5333);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            width: 96%;
+            left: 1%;
+            top: 1%;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--glow-color);
+        }
+
+        header nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        header nav a:hover {
+            color: var(--glow-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            left: 2%;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+                flex-direction: column;
+                background-color: #222;
+                position: absolute;
+                top: 100%;
+                left: 0, 5%;
+                width: 100%;
+                padding: 1rem;
+            }
+
+            header nav.active {
+                display: flex;
+                width: 80%;
+                justify-content: center;
+                left: 7%;
+                background: rgba(85, 85, 85, 0.533);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(7px);
+                -webkit-backdrop-filter: blur(7px);
+                border-bottom: 16px;
+                border-bottom-right-radius: 16px;
+                border-bottom-left-radius: 16px;
+
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+
+        }
+
+
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            color: white;
+            text-align: center;
+            padding: 0, 5rem;
+            margin-top: 2rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .about {
+            float: left;
+            margin: auto;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+<div></div>
+    <header>
+        <h1>GlossLab</h1>
+        <nav>
+            <a href="index.html">Strona główna</a>
+            <a href="uslugi.html">Usługi</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="o-nas.html">O Nas</a>
+        </nav>
+    </header>
+</div>
+
+    <section class="about">
+        <div>
+            <h1>O Nas</h1>
+            <p>Nasze studio zajmuje się kompleksowym detailingem samochodowym</p>
+            <p>już od ponad 14 lat. Specjalizujemy się w aplikacji powłok</p>
+            <p>ceramicznych oraz kwarcowych. Wszystkie powłoki są certyfikowane.</p>
+            <p>Udzielamy gwarancji na pełen okres pobytu powłoki na lakierze.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 GlossLab. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlossLab - Car Detailing</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>GlossLab</h1>
+        <span class="menu-toggle" style="margin-right: 3%;" onclick="toggleMenu()">☰</span>
+        <nav style="margin-right: 2%;">
+            <a href="index.html">Strona Główna</a>
+            <a href="uslugi.html">Usługi</a>
+            <a href="o-nas.html">O Nas</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Auto Detailing</h2>
+        <p>Profesjonalna pielęgnacja Twojego pojazdu, aby lśnił jak nowy.</p>
+        <div class="cta">
+            <button class="glowing_btn">
+                <span class="glowing_txt">C<span class="faulty_letter">L</span>ICK</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="offer">
+        <h2>Oferta</h2>
+        <div class="offer-card">
+            <div class="offer-item">
+                <img src="exterior_glosslab.jpg" alt="Exterior Detailing">
+                <h3>Detailing Zewnętrzny</h3>
+                <p>Wysokiej jakości polerowanie i ochrona lakieru Twojego samochodu.</p>
+            </div>
+            <div class="offer-item">
+                <img src="interior_glosslab.jpg" alt="Interior Cleaning">
+                <h3>Detailing Wewnętrzny</h3>
+                <p>Dokładne odkurzanie i czyszczenie tapicerki dla świeżego wnętrza.</p>
+            </div>
+            <div class="offer-item">
+                <img src="PowłokaCeramiczna_Glosslab.png" alt="Ceramic Coating">
+                <h3>Powłoka ceramiczna</h3>
+                <p>Zaawansowana technologia chroniąca wykończenie Twojego pojazdu.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 GlossLab. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('header nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

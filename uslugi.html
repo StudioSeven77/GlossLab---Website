@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - GlossLab</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        :root {
+            --glow-color: hsl(306, 99%, 66%);
+        }
+
+        body {
+            background-color: #13042c;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-image: url('Uslugi.mp4');
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1%;
+            background: rgba(58, 58, 58, 0.5333);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            width: 96%;
+            left: 1%;
+            top: 1%;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--glow-color);
+        }
+
+        header nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        header nav a:hover {
+            color: var(--glow-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            left: 2%;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+                flex-direction: column;
+                background-color: #222;
+                position: absolute;
+                top: 100%;
+                left: 0, 5%;
+                width: 100%;
+                padding: 1rem;
+            }
+
+            header nav.active {
+                display: flex;
+                width: 80%;
+                justify-content: center;
+                left: 7%;
+                background: rgba(85, 85, 85, 0.533);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-bottom: 16px;
+                border-bottom-right-radius: 16px;
+                border-bottom-left-radius: 16px;
+
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .fullscreen-video {
+                display: none;
+                /* Ukrycie wideo */
+            }
+        }
+
+
+        .services {
+            padding: 10rem 2rem;
+            text-align: center;
+            background-image: url('Uslugi.mp4');
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--glow-color);
+        }
+
+        .services .service-card {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .service-item {
+            background: rgba(58, 58, 58, 0.5333);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card:hover .service-item:not(:hover) {
+            transform: scale(1);
+        }
+
+        .service-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .service-item h3 {
+            margin: 1rem 0;
+            font-size: 1.8rem;
+            color: var(--glow-color);
+        }
+
+        .service-item p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin: 1rem 0;
+        }
+
+        .service-item .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-top: 1rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            color: white;
+            text-align: center;
+            padding: 0, 5rem;
+            margin-top: 2rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+
+        .service-item:hover .additional-info {
+            display: block;
+        }
+
+        .fullscreen-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ustawienie, aby wideo dopasowało się do ekranu */
+            z-index: -1;
+            /* Ustawienie wideo w tle */
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            /* Elementy będą widoczne nad wideo */
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding-top: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>GlossLab</h1>
+        <span class="menu-toggle" style="margin-right: 3%;" onclick="toggleMenu()">☰</span>
+        <nav style="margin-right: 2%;">
+            <a href="index.html">Strona Główna</a>
+            <a href="uslugi.html">Usługi</a>
+            <a href="o-nas.html">O Nas</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+    <video autoplay muted loop class="fullscreen-video">
+        <source src="Uslugi1.mp4" type="video/mp4">
+        Twoja przeglądarka nie obsługuje wideo.
+    </video>
+    <section class="services">
+        <h2>Nasza Oferta</h2>
+        <div class="service-card">
+            <div class="service-item">
+                <img src="exterior_glosslab.jpg" alt="Exterior Detailing">
+                <h3>Detailing Zewnętrzny</h3>
+                <p>Wysokiej jakości polerowanie i ochrona lakieru Twojego samochodu.</p>
+                <p class="additional-info">Zapewniamy maksymalną ochronę powierzchni przed czynnikami zewnętrznymi.
+                </p>
+                <p class="price">Cena: 500 PLN</p>
+            </div>
+            <div class="service-item">
+                <img src="interior_glosslab.jpg" alt="Interior Cleaning">
+                <h3>Detailing Wewnętrzny</h3>
+                <p>Dokładne odkurzanie i czyszczenie tapicerki dla świeżego wnętrza.</p>
+                <p class="additional-info">Stosujemy najlepsze środki czyszczące, aby wnętrze było jak nowe.</p>
+                <p class="price">Cena: 300 PLN</p>
+            </div>
+            <div class="service-item">
+                <img src="PowłokaCeramiczna_Glosslab.png" alt="Ceramic Coating">
+                <h3>Powłoka ceramiczna</h3>
+                <p>Zaawansowana technologia chroniąca wykończenie Twojego pojazdu.</p>
+                <p class="additional-info">Zabezpieczenie na lata przed drobnymi zarysowaniami i brudem.</p>
+                <p class="price">Cena: 1200 PLN</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 GlossLab. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('header nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

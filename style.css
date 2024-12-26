@@ -1,0 +1,399 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+:root {
+    --glow-color: hsl(306, 99%, 66%);
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1%;
+    background: rgba(58, 58, 58, 0.5333);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    width: 96%;
+    left: 1%;
+    top: 1%;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--glow-color);
+}
+
+.glowing_btn {
+    position: relative;
+    color: var(--glow-color);
+    cursor: pointer;
+    padding: 0.35em 1em;
+    border: 0.15em solid var(--glow-color);
+    background: none;
+    border-radius: 0.45em;
+    perspective: 2em;
+    font-family: "Raleway", sans-serif;
+    font-size: 2em;
+    font-weight: 900;
+    letter-spacing: 1em;
+    box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+        0px 0px 0.5em 0px var(--glow-color);
+    animation: border-flicker 2s linear infinite;
+    /* Flickering border animation */
+}
+
+/* Adding glow effect behind the button */
+.glowing_btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+    filter: blur(1em);
+    transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+    background: var(--glow-color);
+    pointer-events: none;
+}
+
+/* Adding background glow effect */
+.glowing_btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    z-index: -1;
+    background-color: var(--glow-color);
+    box-shadow: 0 0 2em 0.2em var(--glow-color);
+    transition: opacity 100ms linear;
+}
+
+/* Styles for the glowing text */
+.glowing_txt {
+    float: left;
+    margin-right: -0.8em;
+    text-shadow: 0 0 0.45em hsl(0 0% 100% / 0.3),
+        0 0 0.45em var(--glow-color);
+    animation: text-flicker 3s linear infinite;
+    /* Flickering text animation */
+}
+
+/* Styles for the faulty letter */
+.faulty_letter {
+    opacity: 0.5;
+    animation: faulty-flicker 3s linear infinite;
+    /* Flickering animation for faulty letter */
+}
+
+/* Hover effects */
+.glowing_btn:hover {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: none;
+    animation: none;
+}
+
+.glowing_btn:hover .glowing_txt {
+    animation: none;
+}
+
+.glowing_btn:hover .faulty_letter {
+    animation: none;
+    text-shadow: none;
+    opacity: 1;
+}
+
+.glowing_btn:hover::before {
+    filter: blur(1.5em);
+    opacity: 1;
+}
+
+.glowing_btn:hover::after {
+    opacity: 1;
+}
+
+/* Keyframes for faulty letter flicker animation */
+@keyframes faulty-flicker {
+    0% {
+        opacity: 0.1;
+    }
+
+    2% {
+        opacity: 0.1;
+    }
+
+    4% {
+        opacity: 0.5;
+    }
+
+    19% {
+        opacity: 0.5;
+    }
+
+    21% {
+        opacity: 0.1;
+    }
+
+    23% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.5;
+    }
+
+    83% {
+        opacity: 0.4;
+    }
+
+    87% {
+        opacity: 1;
+    }
+}
+
+/* Keyframes for text flicker animation */
+@keyframes text-flicker {
+    0% {
+        opacity: 0.1;
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    8% {
+        opacity: 0.1;
+    }
+
+    9% {
+        opacity: 1;
+    }
+
+    12% {
+        opacity: 0.1;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0.3;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0.7;
+    }
+
+    72% {
+        opacity: 0.2;
+    }
+
+    77% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 0.9;
+    }
+}
+
+/* Keyframes for border flicker animation */
+@keyframes border-flicker {
+    0% {
+        opacity: 0.1;
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    4% {
+        opacity: 0.1;
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+header nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+header nav a:hover {
+    color: var(--glow-color);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    left: 2%;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    header nav {
+        display: none;
+        flex-direction: column;
+        background-color: #222;
+        position: absolute;
+        top: 100%;
+        left: 0, 5%;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    header nav.active {
+        display: flex;
+        width: 80%;
+        justify-content: center;
+        left: 7%;
+        background: rgba(85, 85, 85, 0.533);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+        border-bottom: 16px;
+        border-bottom-right-radius: 16px;
+        border-bottom-left-radius: 16px;
+
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+}
+
+
+.hero {
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('exquisite-car-detailing-process-vy6x6osl88debqvq.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 5rem 3rem;
+    color: white;
+}
+
+.hero h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.hero .cta {
+    margin-top: 2rem;
+}
+
+.offer {
+    padding: 10rem 2rem;
+    background-color: #000;
+    background-image: url('pattern1.png');
+    text-align: center;
+}
+
+.offer h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--glow-color);
+}
+
+.offer .offer-card {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.offer-item {
+    background: rgba(58, 58, 58, 0.5333);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.offer-item img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.offer-item h3 {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    color: var(--glow-color);
+}
+
+.offer-item p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    color: white;
+    text-align: center;
+    padding: 0, 5rem;
+    margin-top: 2rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

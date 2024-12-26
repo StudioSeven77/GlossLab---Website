@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - GlossLab</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --glow-color: hsl(306, 99%, 66%);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            background-image: url(bk_glosslab2.jpg);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1%;
+            background: rgba(58, 58, 58, 0.5333);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            width: 96%;
+            left: 1%;
+            top: 1%;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--glow-color);
+        }
+
+        header nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        header nav a:hover {
+            color: var(--glow-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            left: 2%;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+                flex-direction: column;
+                background-color: #222;
+                position: absolute;
+                top: 100%;
+                left: 0, 5%;
+                width: 100%;
+                padding: 1rem;
+            }
+
+            header nav.active {
+                display: flex;
+                width: 80%;
+                justify-content: center;
+                left: 7%;
+                background: rgba(85, 85, 85, 0.533);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(7px);
+                -webkit-backdrop-filter: blur(7px);
+                border-bottom: 16px;
+                border-bottom-right-radius: 16px;
+                border-bottom-left-radius: 16px;
+
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .contact-details {
+                width: 96%;
+                justify-content: center;
+                margin: auto;
+            }
+
+            .contact-item p {
+                justify-content: center;
+                margin-top: 10%;
+            }
+
+            .contact-item {
+                padding: -0.5rem -2rem;
+            }
+        }
+
+
+        .contact-info {
+            padding: 10rem 2rem;
+            text-align: center;
+            background-color: #11111138;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--glow-color);
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            background: rgba(0, 0, 0, 0.533);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--glow-color);
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover i {
+            color: #fff;
+        }
+
+        .contact-item a {
+            color: var(--glow-color);
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+
+        .contact-item a:active {
+            color: #f39c12;
+            /* Kolor po kliknięciu */
+        }
+
+        .contact-item:hover a {
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            color: white;
+            text-align: center;
+            padding: 0, 5rem;
+            margin-top: 2rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>GlossLab</h1>
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+        <nav>
+            <a href="index.html">Strona główna</a>
+            <a href="uslugi.html">Usługi</a>
+            <a href="o-nas.html">O Nas</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+
+    <section class="contact-info">
+        <h2>Skontaktuj się z nami</h2>
+        <p>Masz pytania? Oto nasze dane kontaktowe:</p>
+
+        <div class="contact-details">
+            <div class="contact-item">
+                <i class="material-icons">phone</i>
+                <p>Telefon: <strong><a href="tel:+48123456789">+48 123 456 789</a></strong></p>
+            </div>
+
+            <div class="contact-item">
+                <i class="material-icons">email</i>
+                <p>E-mail: <strong><a href="mailto:kontakt@glosslab.pl">kontakt@glosslab.pl</a></strong></p>
+            </div>
+
+            <div class="contact-item">
+                <i class="material-icons">location_on</i>
+                <p>Adres: <strong><a
+                            href="https://www.google.com/maps/dir/?api=1&destination=ul.%20Przykładowa%20123,%2001-234%20Warszawa"
+                            target="_blank">ul. Przykładowa 123, 01-234 Warszawa</a></strong></p>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2024 GlossLab. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('header nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
